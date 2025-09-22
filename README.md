@@ -1,4 +1,3 @@
-# Database-Schema-Tech-Takes-Automation
 erDiagram
     enterprise_wallets {
         SERIAL wallet_id PK
@@ -17,7 +16,6 @@ erDiagram
         TIMESTAMP created_at
         TIMESTAMP updated_at
     }
-
     user_accounts {
         SERIAL user_id PK
         VARCHAR username UK
@@ -29,7 +27,6 @@ erDiagram
         TIMESTAMP created_at
         TIMESTAMP updated_at
     }
-
     user_wallet_assignments {
         SERIAL assignment_id PK
         INTEGER user_id FK
@@ -40,7 +37,6 @@ erDiagram
         TIMESTAMP assigned_at
         BOOLEAN is_active
     }
-
     transactions {
         SERIAL transaction_id PK
         INTEGER user_id FK
@@ -56,7 +52,6 @@ erDiagram
         TIMESTAMP processed_at
         TIMESTAMP created_at
     }
-
     daily_balance_snapshots {
         SERIAL snapshot_id PK
         DATE snapshot_date
@@ -67,7 +62,6 @@ erDiagram
         DECIMAL wallet_total_value
         TIMESTAMP created_at
     }
-
     webhook_logs {
         SERIAL log_id PK
         VARCHAR webhook_id
@@ -78,7 +72,6 @@ erDiagram
         TEXT error_message
         TIMESTAMP created_at
     }
-
     %% Relationships
     user_accounts ||--o{ user_wallet_assignments : "has"
     enterprise_wallets ||--o{ user_wallet_assignments : "contains"
